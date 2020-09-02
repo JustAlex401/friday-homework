@@ -1,8 +1,14 @@
 # Friday Demo
 
+<<<<<<< HEAD
 This is a project for our Friday demo.
 
 # Installations
+=======
+This is a project for our Friday demo
+
+## Installations
+>>>>>>> 860dabf9cdfb158e6d4056419fd23971597a28e9
 It is required to install some modules on your computers.
 ___
 
@@ -27,7 +33,10 @@ node -v
 npm -v
 ```
 ___
+<<<<<<< HEAD
 
+=======
+>>>>>>> 860dabf9cdfb158e6d4056419fd23971597a28e9
 ### 3. Clone the repo
 _Note:_
 _Maybe it is required to configure you ssh key to clone/commit/push._
@@ -48,12 +57,15 @@ or with the name you prefer
 git clone git@edu-gitlab.leverx-group.com:nodejs-september-2020/friday_demo.git new_name
 ```
 
+<<<<<<< HEAD
 
 
 # Prepare project workspace
 It is required to create a new branch and add some files
 
 ### 1. Create a new branch
+=======
+>>>>>>> 860dabf9cdfb158e6d4056419fd23971597a28e9
 Create a new branch with your name and surname:
 ```
 git checkout -b <name>.<surname>
@@ -71,9 +83,13 @@ git push -u origin <name>.<surname>
 or
 ```
 git push -set-upstream origin <name>.<surname>
+<<<<<<< HEAD
 ```
 ___
 
 ### 2. Add filed to data folder
 Add one big (e.g. pdf) file and not so big file (.txt) to a data folder
 Please do not commit this files
+=======
+```
+>>>>>>> 860dabf9cdfb158e6d4056419fd23971597a28e9
