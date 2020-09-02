@@ -39,15 +39,24 @@ _Follow thw guides:_
 _In case of any problems just contact you mentor_
 
 Clone the repo with default name:
+
 ```
 git clone git@edu-gitlab.leverx-group.com:nodejs-september-2020/friday_demo.git
 ```
+or
+```
+git clone https://edu-gitlab.leverx-group.com/nodejs-september-2020/friday_demo.git
+```
 
 or with the name you prefer
+
 ```
 git clone git@edu-gitlab.leverx-group.com:nodejs-september-2020/friday_demo.git new_name
 ```
-
+or
+```
+git clone https://edu-gitlab.leverx-group.com/nodejs-september-2020/friday_demo.git new_name
+```
 
 
 # Prepare project workspace
