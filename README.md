@@ -25,10 +25,15 @@ nvm install --lts
 ```
 nvm install 12.18.3 
 ```
-- latest version version installation for both OS
+- latest version version installation for macOS
 ```
 nvm install 14.9.0
 ```
+- latest version version installation for Windows
+```
+nvm install latest
+```
+
 and practive with 
 
 ```
