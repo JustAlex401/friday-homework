@@ -15,12 +15,22 @@ Please install nvm
 Main repo + NVM for macOS: https://github.com/nvm-sh/nvm
 NVM for Windows: https://github.com/coreybutler/nvm-windows
 
-Intall both latest version and LTS
+Intall both latest version and LTS.
+
+- LTS version installation for macOS
 ```
-nvm install --lts
+nvm install --lts 
+```
+- LTS version installation for Windows
+```
+nvm install 12.18.3 
+```
+- latest version version installation for both OS
+```
 nvm install 14.9.0
 ```
 and practive with 
+
 ```
 nvm use <nodejs version you want to use>
 node -v
