@@ -17,6 +17,8 @@
 // Error: ENOENT: no such file or directory, open './data/output/Catcher_in_the_Rye.pdf'
 
 const fs = require('fs');
+const {isEqual} = require('lodash');
+const {requiredFiles} = require('./resources.json')
 
 function prepareWorkspace() {
     checkGitignore(); // for homework
@@ -29,7 +31,16 @@ function checkGitignore() {
     // for homework
 }
 
-function checkDataFolder() {}
+function checkDataFolder() {
+    if(!fs.existsSync('./data')) {
+        throw new Error('No ./data folder here');
+    }
+    console.log(' -> ./data folder checked');
+    const existedFiles = fs.readdirSync('./data');
+    if (!isEqual(existedFiles, requiredFiles)) {
+        throw new Error('No files');
+    }
+}
 
 function checkOutputFolder() {
     // for homework
@@ -38,3 +49,9 @@ function checkOutputFolder() {
 function createOutputFolder() {
     // for home work, not for demo
 }
+
+if (require.main === module) {
+    prepareWorkspace();
+}
+
+module.exports = prepareWorkspace;

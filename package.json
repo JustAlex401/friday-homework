@@ -1,0 +1,19 @@
+{
+  "name": "friday_demo",
+  "version": "1.0.0",
+  "description": "Demo small",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@edu-gitlab.leverx-group.com:nodejs-september-2020/friday_demo.git"
+  },
+  "author": "Margarita Krivorot",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.5",
+    "winston": "^3.3.3"
+  }
+}
