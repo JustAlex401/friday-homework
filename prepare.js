@@ -14,27 +14,29 @@
 //      - function createOutputFolder(): Create directory "output"
 //      NOTE: file can be executed as script or can be exported
 
-// Error: ENOENT: no such file or directory, open './data/output/Catcher_in_the_Rye.pdf'
 
 const fs = require('fs');
+const { isEqual } = require("lodash");
+const {requiredFiles} = require("./resources.json");
+
 
 function prepareWorkspace() {
-    checkGitignore(); // for homework
+    checkGitignore();
     checkDataFolder();
-    checkOutputFolder(); // for homework
-    createOutputFolder(); // for homework
+    checkOutputFolder();
+    createOutputFolder();
 }
 
-function checkGitignore() {
-    // for homework
-}
+function checkGitignore() {}
 
 function checkDataFolder() {}
 
-function checkOutputFolder() {
-    // for homework
+function checkOutputFolder() {}
+
+function createOutputFolder() {}
+
+if(require.main == module){
+    prepareWorkspace();
 }
 
-function createOutputFolder() {
-    // for home work, not for demo
-}
+module.exports = prepareWorkspace;
