@@ -10,11 +10,12 @@
 //      - function checkGitignore(): Check if ".gitignore" file exists, otherwise throw an error: "No '.gitignore' file. Please create .gitignore' file, otherwise all .txt files will be commited"
 //      - function checkDataFolder(): (1) Check if "data" folder exists, otherwise throw an error: "No 'data' file"
 //                                    (2) Check if requried files exist, otherwise throw an error: Not enought files in './data' folder: missed __ file(s)
-//      - function checkOutputFolder(): Check if no "output" folder, otherwise
+//      - function checkOutputFolder(): Check "output" folder. If 'output' folder exists, throw an error: 
+//                                      "Output folder is here, but need to be removed (use cleanup script)"
+//                                      If there is no folder, proceed
 //      - function createOutputFolder(): Create directory "output"
 //      NOTE: file can be executed as script or can be exported
 
-// Error: ENOENT: no such file or directory, open './data/output/Catcher_in_the_Rye.pdf'
 
 const fs = require('fs');
 const {isEqual} = require('lodash');
