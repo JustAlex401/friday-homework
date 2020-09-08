@@ -21,37 +21,23 @@ const fs = require('fs');
 const {isEqual} = require('lodash');
 const {requiredFiles} = require('./resources.json')
 
+
 function prepareWorkspace() {
-    checkGitignore(); // for homework
+    checkGitignore();
     checkDataFolder();
-    checkOutputFolder(); // for homework
-    createOutputFolder(); // for homework
+    checkOutputFolder();
+    createOutputFolder();
 }
 
-function checkGitignore() {
-    // for homework
-}
+function checkGitignore() {}
 
-function checkDataFolder() {
-    if(!fs.existsSync('./data')) {
-        throw new Error('No ./data folder here');
-    }
-    console.log(' -> ./data folder checked');
-    const existedFiles = fs.readdirSync('./data');
-    if (!isEqual(existedFiles, requiredFiles)) {
-        throw new Error('No files');
-    }
-}
+function checkDataFolder() {}
 
-function checkOutputFolder() {
-    // for homework
-}
+function checkOutputFolder() {}
 
-function createOutputFolder() {
-    // for home work, not for demo
-}
+function createOutputFolder() {}
 
-if (require.main === module) {
+if(require.main == module){
     prepareWorkspace();
 }
 

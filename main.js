@@ -3,47 +3,36 @@
  * https://nodejs.org/docs/latest-v12.x/api/fs.html
  * https://nodejs.org/docs/latest-v12.x/api/buffer.html
  * https://nodejs.org/docs/latest-v12.x/api/events.html
+ * https://www.tutorialspoint.com/nodejs/nodejs_event_emitter.htm
  */
+//      The main goal - copy files from folder data to "output" folder and emit events
+//      The whole main.js file has to be an instance of Event Emitter.
+//      eventEmitter.js is an example for you
 
-// TODO:
-//      Copy files from folder data to "output" folder
-const fs = require('fs');
-const prepare = require('./prepare');
-console.log('Modules import');
+//      How to achive:
+//      - create a class FileProcessor which extends EventEmitter
+//      - run steps prepareWorkingDirectory, dealWithEventsInStreamsInFs, dealWithStreamsInFs inside class
+//      - emit events for each step
+//      - export instance of a created class
 
-// prepare();
-// dealWithStreamsInFs()
-// dealWithEventsInStreamsInFs()
-// cleanup() 
+const fs = require("fs");
+const prepare = require("./prepare");
 
 function dealWithEventsInStreamsInFs() {
-    console.log('dealWithEventsInStreamsInFs function started');
-    let fileData = '';
-    let numberOfChunks = 0;
-    const readStream = fs.createReadStream('./data/Catcher_in_the_Rye.pdf');
+    // Set utf-8 enconing for the read stream
+    const readStream = fs.createReadStream("some file");
 
-    readStream.on('data', function (chunk) {
-        console.log('We read a file via streams');
-        numberOfChunks = numberOfChunks + 1;
-        fileData = Buffer.from(chunk).toString('utf-8');
-    });
-
-    readStream.on('end', () => {
-        console.log('We finished');
-        console.log(`It was ${numberOfChunks} chunks`);
+    readStream.on("data", (chunk) => {
+        // count chunks and append (use 'a' modefor fs methos) file in output folder with each chunk
     })
 
-    readStream.on('<event name>', function (chunk) {
-        console.log('Noname event');
-     });
+    readStream.on("end", () => {
+        // emit event that you finish to read fromthe stream, add to event a message with number of chunks
+    })
 
-     console.log('Main is finished, but streams are still working');
+    console.log("Main is finished, but streams are still working");
 }
 
 function dealWithStreamsInFs() {
-    // readStream.pipe(write stream);
-    const readStream = fs.createReadStream('./data/Catcher_in_the_Rye.pdf');
-    const writeStream = fs.createWriteStream('./output/Catcher_in_the_Rye.pdf');
-    readStream.pipe(writeStream);
+    // Use pipe here to read from one stream and write to another
 }
-dealWithEventsInStreamsInFs()
