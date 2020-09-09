@@ -1,3 +1,4 @@
 {
-    "requiredFiles": ["Catcher_in_the_Rye.pdf", "forEvents.txt"]
+    "requiredFiles": ["My_text_d.txt", "My_work.pdf"],
+    "gitignore" : ["data/", ".vscode" , "node_modules", "output"]
 }

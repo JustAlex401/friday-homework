@@ -4,12 +4,34 @@
 //       create listeners and listen to events (define by yourself what you want to do in listeners)
 //       handle errors
 
-const fileProcessingEventEmitter = require('./eventEmitter');
+const fileProcessingEventEmitter = require('./main.js');
 
-function listenerStart() { }
+function listenerStart() { 
+    console.log('Work has begun');
+}
 
-function listenerEnd() { }
+function listenerEnd() { 
+    console.log('Work has ended');
+}
 
-async function asyncListener() { };
+async function asyncListener(a, b) { 
+    setImmediate(() => {
+        console.log('this happens asynchronously');
+      });
+};
 
-async function asyncListenerWithError() { };
+async function asyncListenerWithError(value) {
+      throw new Error('Async Error');
+ };
+
+
+
+
+ fileProcessingEventEmitter.once('start', listenerStart);
+ fileProcessingEventEmitter.once('start', asyncListener);
+ fileProcessingEventEmitter.once('start', asyncListenerWithError);
+//  fileProcessingEventEmitter.once('error', console.log);
+fileProcessingEventEmitter.once('end', listenerEnd);
+
+fileProcessingEventEmitter.runFileProcessing();
+

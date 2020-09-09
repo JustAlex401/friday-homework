@@ -13,6 +13,7 @@
   "author": "Margarita Krivorot",
   "license": "ISC",
   "dependencies": {
+    "fs-extra": "^9.0.1",
     "lodash": "^4.17.5",
     "winston": "^3.3.3"
   }

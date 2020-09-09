@@ -19,7 +19,8 @@
 
 const fs = require('fs');
 const {isEqual} = require('lodash');
-const {requiredFiles} = require('./resources.json')
+const {requiredFiles} = require('./resources.json');
+// const {gitignore} = require('./resources.json');
 
 
 function prepareWorkspace() {
@@ -29,13 +30,57 @@ function prepareWorkspace() {
     createOutputFolder();
 }
 
-function checkGitignore() {}
+function checkGitignore() {
+    try{
+        if(fs.existsSync('.gitignore')){
+            console.log("All good!!!");
+        } else {
+            throw new Error("No '.gitignore' file. Please create .gitignore' file, otherwise all .txt files will be commited")
+        }
+    } catch (err) {
+        console.error(err);
+        // const arr=Object.values(gitignore);
+        // const res = arr.reduce(function(resStr, val) {
+        //     return resStr+=val +"\n";
+        // }, "")
+        // fs.openSync(".gitignore", "w");
+        // fs.writeFileSync(".gitignore", res);
+    }
+          
+}
 
-function checkDataFolder() {}
+function checkDataFolder() {
+    try{
+        if(!fs.existsSync('data')){
+            throw new Error("No 'data' file");
+        } else{
+            const existedFiles =fs.readdirSync('./data');
+            if(!isEqual(existedFiles, requiredFiles)){
+                throw new Error("Not enought files in './data' folder: missed __ file(s)");
+            }
+        }
+    } catch (err) {
+        console.error(err.message);
+    }
+}
 
-function checkOutputFolder() {}
+function checkOutputFolder() {
+    try{
+        if(fs.existsSync('output')){
+            throw new Error("Output folder is here, but need to be removed (use cleanup script)");
+        } 
+    } catch (err) {
+        console.error(err.message);
+    }
+}
 
-function createOutputFolder() {}
+function createOutputFolder() {
+    try{
+        fs.mkdirSync('output');
+    } catch (err){
+        console.error(err.message);
+    }
+}
 
 if(require.main == module){
     prepareWorkspace();
